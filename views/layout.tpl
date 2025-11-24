@@ -6,17 +6,15 @@
     <title>Sistema Bottle - {{title or 'Sistema'}}</title>
     <link rel="stylesheet" href="/static/css/style.css" />
 </head>
-<body>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
 
-    <div class="container">
-        {{!base}}  <!-- O conteúdo das páginas filhas virá aqui -->
-    </div>
+    % include('components/header.tpl')
 
-    <footer>
-        <p>&copy; 2025, Meu Projeto. Todos os direitos reservados.</p>
-    </footer>
+    <main style="flex: 1;">
+        {{!base}}
+    </main>
 
-    <!-- Scripts JS no final do body -->
-    <script src="/static/js/main.js"></script>
+    % include('components/footer.tpl')
+
 </body>
 </html>
