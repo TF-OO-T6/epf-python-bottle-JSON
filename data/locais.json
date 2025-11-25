@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "nome": "SESI Lab",
+        "categoria": "Centro Cultural",
+        "nota": 4.9,
+        "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Sesi_Lab.jpg/800px-Sesi_Lab.jpg",
+        "status": "Fechado"
+    },
+    {
+        "id": 2,
+        "nome": "CCBB Brasília",
+        "categoria": "Centro Cultural",
+        "nota": 4.8,
+        "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/CCBB_Brasilia.jpg/800px-CCBB_Brasilia.jpg",
+        "status": "Aberto"
+    }
+]
