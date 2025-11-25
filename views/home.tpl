@@ -1,31 +1,55 @@
-% rebase('views/layout.tpl', title='BSB Cultural')
+% rebase('views/layout.tpl', title='Home')
 
-<div style="background-color: #003366; color: white; padding: 60px 20px; text-align: center; border-radius: 0 0 20px 20px;">
-    <h1>Brasília: Seu Guia de Descobertas</h1>
-    <p>Descubra os melhores locais da capital.</p>
+<div style="background-color: #0f172a; color: white; padding: 80px 20px; text-align: center; border-bottom: 1px solid #1e293b;">
+    <h1 style="margin: 0; font-size: 2.5rem; letter-spacing: -1px;">Brasília: Seu Guia de Descobertas</h1>
+    <p style="color: #94a3b8; font-size: 1.1rem; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Descubra os melhores museus, centros culturais e restaurantes da capital federal.
+    </p>
 </div>
 
-<div class="container" style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
-    <h3>Melhores Avaliados</h3>
+<div class="container" style="max-width: 1200px; margin: -40px auto 60px; padding: 0 20px;">
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding: 0 10px;">
+        <h3 style="margin: 0; color: #0f172a; font-size: 1.5rem;">✨ Melhores Avaliados</h3>
+        <span style="background: #e0e7ff; color: #4338ca; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Top 10</span>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;">
         
         % for local in locais:
-        <div class="card" style="border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            <img src="{{local.imagem}}" style="width: 100%; height: 200px; object-fit: cover;">
-            <div style="padding: 15px;">
-                <h4 style="margin: 0 0 10px; color: #0056b3;">{{local.nome}}</h4>
-                <p><strong>Nota:</strong> ⭐ {{local.nota}}</p>
-                <p style="color: #666;">{{local.categoria}}</p>
-                
+        <div class="card" style="background: white; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;">
+            
+            <div style="height: 200px; overflow: hidden; position: relative;">
+                <img src="{{local.imagem}}" style="width: 100%; height: 100%; object-fit: cover;">
                 % if local.status == 'Aberto':
-                    <span style="color: green; font-weight: bold;">Aberto</span>
+                    <span style="position: absolute; top: 12px; right: 12px; background: #22c55e; color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">Aberto</span>
                 % else:
-                    <span style="color: red; font-weight: bold;">Fechado</span>
+                    <span style="position: absolute; top: 12px; right: 12px; background: #ef4444; color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">Fechado</span>
                 % end
+            </div>
+
+            <div style="padding: 20px;">
+                <h4 style="margin: 0 0 8px; color: #1e293b; font-size: 1.1rem;">{{local.nome}}</h4>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <span style="color: #f59e0b; font-weight: 700; font-size: 0.95rem;">★ {{local.nota}}</span>
+                    <span style="color: #64748b; font-size: 0.85rem;">{{local.categoria}}</span>
+                </div>
+                <button style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; background: transparent; color: #475569; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s;">Ver Detalhes</button>
             </div>
         </div>
         % end
 
     </div>
 </div>
+
+<style>
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        border-color: #cbd5e1 !important;
+    }
+    .card button:hover {
+        background: #f1f5f9 !important;
+        color: #0f172a !important;
+    }
+</style>
