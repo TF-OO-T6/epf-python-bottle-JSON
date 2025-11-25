@@ -4,7 +4,7 @@
         "nome": "SESI Lab",
         "categoria": "Centro Cultural",
         "nota": 4.9,
-        "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Sesi_Lab.jpg/800px-Sesi_Lab.jpg",
+        "imagem": "/static/img/sesi.jpg",
         "status": "Fechado"
     },
     {
@@ -12,7 +12,23 @@
         "nome": "CCBB Brasília",
         "categoria": "Centro Cultural",
         "nota": 4.8,
-        "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/CCBB_Brasilia.jpg/800px-CCBB_Brasilia.jpg",
+        "imagem": "/static/img/ccbb.jpg",
+        "status": "Aberto"
+    },
+    {
+        "id": 3,
+        "nome": "Museu Nacional",
+        "categoria": "Museu",
+        "nota": 4.6,
+        "imagem": "/static/img/museu.jpg",
+        "status": "Aberto"
+    },
+    {
+        "id": 4,
+        "nome": "Pontão do Lago Sul",
+        "categoria": "Lazer",
+        "nota": 4.7,
+        "imagem": "/static/img/pontao.jpg",
         "status": "Aberto"
     }
 ]
