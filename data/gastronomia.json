@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "nome": "Maramar",
+        "nota": 4.7,
+        "imagem": "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxMbOkW116aEc6OmKz__7m8Yunrt0OC0gb4m7l9Dd848aC1Mp0KrRanBcZmMP89VoKx0y0qUcRY1ok8hyuKOmFoT_synLa0hMgE-dmwpFz80gE9kHcE9o684l0wbjB4z29IK_w-5GwfNHE=s1360-w1360-h1020-rw",
+        "horario": "11:00 - 00:00",
+        "localizacao": "Chácara 312 A- LOTE 44, Vicente Pires Chácaras, St. Hab. Vicente Pires, Brasília - DF, 72007-730"
+    },
+    {
+        "id": 2,
+        "nome": "Coco Bambu",
+        "nota": 4.8,
+        "imagem": "https://cocobambu.com.br/web/image/1132-27c9c930/IMG_8064.webp",
+        "horario": "11:30 - 00:00",
+        "localizacao": "DF Plaza Shopping"
+    },
+    {
+        "id": 3,
+        "nome": "Nau Frutos do Mar",
+        "nota": 4.9,
+        "imagem": "https://veja.abril.com.br/wp-content/uploads/2017/08/txf2717.jpg?quality=70&strip=info",
+        "horario": "12:00 - 23:00",
+        "localizacao": "Setor de Clubes Sul"
+    }
+]
