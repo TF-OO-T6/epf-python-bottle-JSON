@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "nome": "Contexto Bar e Restaurante",
+        "horario": "17:00–00:00",
+        "imagem": "https://radardigitalbrasilia.com.br/wp-content/uploads/2023/03/Divulgacao-3D_Contexto-2.jpeg",
+        "local": "St. de Clubes Esportivos Sul Trecho 2 Cj. 26/27 Lotes 02A e 02B - Setor de Clubes, Brasília - DF, 70200-002",
+        "categoria": "Entretenimento"
+    },
+    {
+        "id": 2,
+        "nome": "complexo fora do eixo brasilia",
+        "horario": "11:00–05:00",
+        "imagem": "https://visitebrasilia.com.br/images/2025/07/20250723180156_l_ForadoEixo-divulgao41.jpg",
+        "local": "Saa - SAAN, Brasília - DF, 70632-100",
+        "categoria": "Entretenimento"
+    },
+    {
+        "id": 3,
+        "nome": "Brazolia Cozinha E Bar",
+        "horario": "11:00–02:00",
+        "imagem": "https://lh3.googleusercontent.com/p/AF1QipM5tGG1uuQ8KLmbwv4cdovbDduL5XWnPgbppXkc=w243-h406-n-k-no-nu",
+        "local": "SGO Q 3 - Plano Piloto, Brasília - DF, 70655-775",
+        "categoria": "Entretenimento"
+    },
+    {
+        "id": 4,
+        "nome": "Bar Responsa",
+        "horario": "12:00–01:00",
+        "imagem": "https://fly.metroimg.com/upload/q_85,w_700/https://uploads.metroimg.com/wp-content/uploads/2019/05/21145224/190519JP_Aniversario-Bar-Responsa023.jpg",
+        "local": "4, CLS 202 Bloco A, Brasília - DF, 70330-515",
+        "categoria": "Entretenimento"
+    }
+]

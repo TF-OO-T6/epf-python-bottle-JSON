@@ -30,7 +30,11 @@
 
     <header>
         <div class="header-container">
-            <div class="logo">BSB <span>Cultural</span></div>
+            <div class="logo">
+    <a href="/portal" style="text-decoration: none; color: inherit;">
+        BSB <span>Cultural</span>
+    </a>
+</div>
             
             <nav>
                 <a href="/portal">Home</a>

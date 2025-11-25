@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "nome": "Museu Nacional",
+        "nota": 4.8,
+        "imagem": "https://uploads.metroimg.com/wp-content/uploads/2024/07/15122248/20042021-RF-_-Museu-Nacional-da-Republica-_-cenas-da-cidade_-004-1-scaled.jpg",
+        "horario": "09:00 - 18:30",
+        "localizacao": "Esplanada dos Ministérios"
+    },
+    {
+        "id": 2,
+        "nome": "Memorial JK",
+        "nota": 4.9,
+        "imagem": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Memorial_J_Kubitschek_Brasilia_2009.jpg",
+        "horario": "09:00 - 18:00",
+        "localizacao": "Eixo Monumental"
+    },
+    {
+        "id": 3,
+        "nome": "Catetinho",
+        "nota": 4.7,
+        "imagem": "https://uploads.metroimg.com/wp-content/uploads/2016/11/12204231/Jos%C3%A9-Cruz-ABr.jpg",
+        "horario": "09:00 - 17:00",
+        "localizacao": "Gama (BR-040)"
+    }
+]
