@@ -1,42 +1,43 @@
-from bottle import request
-from models.user import UserModel, User
+import json
+import os
+from models.user import User
 
 class UserService:
     def __init__(self):
-        self.user_model = UserModel()
+        self.db_path = 'data/users.json'
+        
+        if not os.path.exists(self.db_path):
+            with open(self.db_path, 'w') as f:
+                json.dump([], f)
 
+    def _load_users(self):
+        try:
+            with open(self.db_path, 'r') as f:
+                return json.load(f)
+        except:
+            return []
 
-    def get_all(self):
-        users = self.user_model.get_all()
-        return users
+    def _save_users(self, users):
+        with open(self.db_path, 'w') as f:
+            json.dump(users, f, indent=4)
 
+    def create_user(self, name, email, password):
+        users = self._load_users()
+        
+        for u in users:
+            if u['email'] == email:
+                return False
+        
+        new_user = User(name, email, password)
+        users.append(new_user.to_dict())
+        self._save_users(users)
+        return True
 
-    def save(self):
-        last_id = max([u.id for u in self.user_model.get_all()], default=0)
-        new_id = last_id + 1
-        name = request.forms.get('name')
-        email = request.forms.get('email')
-        birthdate = request.forms.get('birthdate')
-
-        user = User(id=new_id, name=name, email=email, birthdate=birthdate)
-        self.user_model.add_user(user)
-
-
-    def get_by_id(self, user_id):
-        return self.user_model.get_by_id(user_id)
-
-
-    def edit_user(self, user):
-        name = request.forms.get('name')
-        email = request.forms.get('email')
-        birthdate = request.forms.get('birthdate')
-
-        user.name = name
-        user.email = email
-        user.birthdate = birthdate
-
-        self.user_model.update_user(user)
-
-
-    def delete_user(self, user_id):
-        self.user_model.delete_user(user_id)
+    def authenticate(self, email, password):
+        users = self._load_users()
+        
+        for u in users:
+            if u['email'] == email and u['password'] == password:
+                return u['name']
+        
+        return None
