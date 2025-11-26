@@ -3,7 +3,6 @@ from controllers.base_controller import BaseController
 from services.local_service import LocalService
 from services.gastronomia_service import GastronomiaService
 from services.museu_service import MuseuService
-# --- NOVO IMPORT ---
 from services.evento_service import EventoService
 
 class SiteController(BaseController):
@@ -12,7 +11,6 @@ class SiteController(BaseController):
         self.service = LocalService()
         self.gastro_service = GastronomiaService()
         self.museu_service = MuseuService()
-        # --- INICIALIZA O SERVIÇO DE EVENTOS ---
         self.evento_service = EventoService()
 
     def index(self):
@@ -27,12 +25,10 @@ class SiteController(BaseController):
         dados_museus = self.museu_service.get_all()
         return template('views/museus', museus=dados_museus)
 
-    # --- PÁGINA DE EVENTOS ATUALIZADA ---
     def pagina_eventos(self):
         dados_eventos = self.evento_service.get_all()
         return template('views/eventos', eventos=dados_eventos)
 
-    # --- Página de Mapas (Ainda genérica) ---
     def pagina_mapas(self):
         return template('views/generico', titulo="Mapas", mensagem="Em breve.")
 
