@@ -62,7 +62,7 @@
             justify-content: flex-start;
           "
         >
-          ❤️ Meus Favoritos
+          Meus Favoritos
         </button>
       </div>
 
