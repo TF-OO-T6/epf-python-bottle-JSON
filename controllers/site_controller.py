@@ -1,65 +1,46 @@
-from bottle import template, request
+from bottle import template, request, static_file
+from controllers.base_controller import BaseController
+from services.evento_service import EventoService
+from services.museu_service import MuseuService
+from services.gastronomia_service import GastronomiaService
+from services.local_service import LocalService 
 
-class SiteController:
-    def __init__(self, app):
-        self.app = app
-
+class SiteController(BaseController):
     def setup_routes(self):
+        evento_service = EventoService()
+        museu_service = MuseuService()
+        gastro_service = GastronomiaService()
+        local_service = LocalService()
         
-        @self.app.get('/')
-        @self.app.get('/portal')
+        @self.bottle.get('/')
+        @self.bottle.get('/portal')
         def index():
-            user_logado = request.get_cookie("user_session", secret='segredo')
+            user = request.get_cookie("user_session", secret='segredo')
             
-            locais_falsos = [
-                {
-                    'nome': 'Museu Nacional', 
-                    'imagem': '/static/img/museu.jpg', 
-                    'nota': '4.8', 
-                    'categoria': 'Museu', 
-                    'status': 'Aberto'
-                },
-                {
-                    'nome': 'Cine Brasília', 
-                    'imagem': '/static/img/cine.jpg', 
-                    'nota': '4.9', 
-                    'categoria': 'Cinema', 
-                    'status': 'Fechado'
-                },
-                {
-                    'nome': 'Pontão do Lago Sul', 
-                    'imagem': '/static/img/pontao.jpg', 
-                    'nota': '4.7', 
-                    'categoria': 'Gastronomia', 
-                    'status': 'Aberto'
-                }
-            ]
+            lista_locais = local_service.get_all()
             
-            return template('home', user=user_logado, locais=locais_falsos)
+            return template('views/home', user=user, locais=lista_locais)
 
-        @self.app.get('/locais')
-        @self.app.get('/gastronomia')
-        def pagina_locais():
-            user_logado = request.get_cookie("user_session", secret='segredo')
-            return template('locais', user=user_logado, locais=[])
-
-        @self.app.get('/eventos')
+        @self.bottle.get('/eventos')
         def pagina_eventos():
-            user_logado = request.get_cookie("user_session", secret='segredo')
-            return template('eventos', user=user_logado, eventos=[])
+            user = request.get_cookie("user_session", secret='segredo')
+            lista_eventos = evento_service.get_all() 
+            return template('views/eventos', user=user, eventos=lista_eventos)
 
-        @self.app.get('/mapa')
-        @self.app.get('/mapas')
-        def pagina_mapas():
-            user_logado = request.get_cookie("user_session", secret='segredo')
-            return template('mapa', user=user_logado)
-        
-        @self.app.get('/museus')
+        @self.bottle.get('/museus')
         def pagina_museus():
-            user_logado = request.get_cookie("user_session", secret='segredo')
-            return template('museus', user=user_logado, museus=[])
+            user = request.get_cookie("user_session", secret='segredo')
+            lista_museus = museu_service.get_all()
+            return template('views/museus', user=user, museus=lista_museus)
 
-        @self.app.get('/local/<local_id>')
-        def detalhes(local_id):
-            user_logado = request.get_cookie("user_session", secret='segredo')
-            return template('detalhes_local', user=user_logado, id=local_id)
+        @self.bottle.get('/gastronomia')
+        @self.bottle.get('/locais') 
+        def pagina_gastronomia():
+            user = request.get_cookie("user_session", secret='segredo')
+            lista_gastro = gastro_service.get_all()
+            return template('views/gastronomia', user=user, restaurantes=lista_gastro)
+
+        @self.bottle.get('/mapa')
+        def pagina_mapas():
+            user = request.get_cookie("user_session", secret='segredo')
+            return template('views/mapa', user=user)
