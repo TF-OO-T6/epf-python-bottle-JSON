@@ -39,3 +39,10 @@ def register_action():
 def logout_action():
     response.delete_cookie("user_session", path='/')
     return redirect('/')
+
+@get('/perfil')
+def profile_view():
+    user = request.get_cookie("user_session", secret='chave_secreta_do_grupo')
+    if not user:
+        return redirect('/login')
+    return template('user', user=user)
