@@ -15,16 +15,16 @@ def login_action():
     username = service.authenticate(email, password)
     
     if username:
-        response.set_cookie("user_session", username, secret='my_secret_key_123', path='/')
+        response.set_cookie("user_session", username, secret='segredo', path='/')
         return redirect('/')
     else:
         return template('login', error="Email ou senha incorretos")
 
-@get('/register')
+@get('/cadastro')
 def register_view():
     return template('cadastro', error=None)
 
-@post('/register')
+@post('/cadastro')
 def register_action():
     name = request.forms.get('name')
     email = request.forms.get('email')
@@ -42,7 +42,9 @@ def logout_action():
 
 @get('/perfil')
 def profile_view():
-    user = request.get_cookie("user_session", secret='chave_secreta_do_grupo')
+    user = request.get_cookie("user_session", secret='segredo')
+    
     if not user:
         return redirect('/login')
+        
     return template('user', user=user)
