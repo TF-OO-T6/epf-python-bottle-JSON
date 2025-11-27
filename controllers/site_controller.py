@@ -1,42 +1,41 @@
-from bottle import template
-from controllers.base_controller import BaseController
-from services.local_service import LocalService
-from services.gastronomia_service import GastronomiaService
-from services.museu_service import MuseuService
-from services.evento_service import EventoService
+from bottle import template, request
 
-class SiteController(BaseController):
+class SiteController:
     def __init__(self, app):
-        self.bottle = app
-        self.service = LocalService()
-        self.gastro_service = GastronomiaService()
-        self.museu_service = MuseuService()
-        self.evento_service = EventoService()
-
-    def index(self):
-        dados_locais = self.service.get_all()
-        return template('views/home', locais=dados_locais)
-
-    def pagina_gastronomia(self):
-        dados_restaurantes = self.gastro_service.get_all()
-        return template('views/gastronomia', restaurantes=dados_restaurantes)
-
-    def pagina_museus(self):
-        dados_museus = self.museu_service.get_all()
-        return template('views/museus', museus=dados_museus)
-
-    def pagina_eventos(self):
-        dados_eventos = self.evento_service.get_all()
-        return template('views/eventos', eventos=dados_eventos)
-
-    def pagina_mapas(self):
-        return template('views/generico', titulo="Mapas", mensagem="Em breve.")
+        self.app = app
 
     def setup_routes(self):
-        self.bottle.route('/portal', method='GET', callback=self.index)
-        self.bottle.route('/', method='GET', callback=self.index)
         
-        self.bottle.route('/mapas', method='GET', callback=self.pagina_mapas)
-        self.bottle.route('/gastronomia', method='GET', callback=self.pagina_gastronomia)
-        self.bottle.route('/eventos', method='GET', callback=self.pagina_eventos)
-        self.bottle.route('/museus', method='GET', callback=self.pagina_museus)
+        @self.app.get('/')
+        @self.app.get('/portal')
+        def index():
+            user_logado = request.get_cookie("user_session", secret='segredo')
+            
+            locais_falsos = [
+                {'nome': 'Museu Nacional', 'imagem': '', 'nota': '4.8', 'categoria': 'Museu', 'status': 'Aberto'},
+                {'nome': 'Cine Brasília', 'imagem': '', 'nota': '4.5', 'categoria': 'Cinema', 'status': 'Fechado'}
+            ]
+            
+            return template('home', user=user_logado, locais=locais_falsos)
+
+        @self.app.get('/locais')
+        @self.app.get('/gastronomia')
+        def pagina_locais():
+            user_logado = request.get_cookie("user_session", secret='segredo')
+            return template('locais', user=user_logado, locais=[])
+
+        @self.app.get('/eventos')
+        def pagina_eventos():
+            user_logado = request.get_cookie("user_session", secret='segredo')
+            return template('eventos', user=user_logado, eventos=[])
+
+        @self.app.get('/mapa')
+        @self.app.get('/mapas')
+        def pagina_mapas():
+            user_logado = request.get_cookie("user_session", secret='segredo')
+            return template('mapa', user=user_logado, titulo="Mapas")
+        
+        @self.app.get('/museus')
+        def pagina_museus():
+            user_logado = request.get_cookie("user_session", secret='segredo')
+            return template('museus', user=user_logado, museus=[])

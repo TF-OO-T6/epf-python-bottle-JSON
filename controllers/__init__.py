@@ -14,3 +14,4 @@ def init_controllers(app):
     static = StaticController(app)
     static.setup_routes()
     print("✅ StaticController carregado!")
+    
