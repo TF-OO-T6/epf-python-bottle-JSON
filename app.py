@@ -20,3 +20,4 @@ class App:
             debug=True, 
             reloader=True
         )
+            
