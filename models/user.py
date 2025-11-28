@@ -3,6 +3,7 @@ class User:
         self.name = name
         self.email = email
         self.password = password
+
     def to_dict(self):
         return {
             "name": self.name,

@@ -8,13 +8,11 @@ from services.evento_service import EventoService
 class SiteController(BaseController):
     def __init__(self, app):
         self.bottle = app
-
         self.service = LocalService()
         self.gastro_service = GastronomiaService()
         self.museu_service = MuseuService()
         self.evento_service = EventoService()
 
-  
     def index(self):
         dados_locais = self.service.get_all()
         return template('views/home', locais=dados_locais)
@@ -34,12 +32,10 @@ class SiteController(BaseController):
     def pagina_mapas(self):
         return template('views/generico', titulo="Mapas", mensagem="Em breve.")
 
-  
     def ver_detalhes(self, tipo, id_item):
         item = None
         nome_tipo = ""
 
-    
         if tipo == 'locais':
             item = self.service.get_by_id(id_item)
             nome_tipo = "Ponto Turístico"
@@ -53,22 +49,18 @@ class SiteController(BaseController):
             item = self.evento_service.get_by_id(id_item)
             nome_tipo = "Evento"
 
-       
         if item:
             return template('views/detalhes', item=item, categoria_nome=nome_tipo)
         else:
             return template('views/generico', titulo="Erro", mensagem="Item não encontrado!")
 
-   
     def setup_routes(self):
-        # Home
         self.bottle.route('/portal', method='GET', callback=self.index)
         self.bottle.route('/', method='GET', callback=self.index)
         
-       
         self.bottle.route('/mapas', method='GET', callback=self.pagina_mapas)
         self.bottle.route('/gastronomia', method='GET', callback=self.pagina_gastronomia)
         self.bottle.route('/eventos', method='GET', callback=self.pagina_eventos)
         self.bottle.route('/museus', method='GET', callback=self.pagina_museus)
-    
+
         self.bottle.route('/detalhes/<tipo>/<id_item>', method='GET', callback=self.ver_detalhes)
