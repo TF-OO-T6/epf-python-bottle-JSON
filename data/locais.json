@@ -5,7 +5,8 @@
         "categoria": "Centro Cultural",
         "nota": 4.9,
         "imagem": "/static/img/sesi.jpg",
-        "status": "Fechado"
+        "status": "Fechado",
+        "localizacao": "Setor Cultural Sul"
     },
     {
         "id": 2,
@@ -13,7 +14,8 @@
         "categoria": "Centro Cultural",
         "nota": 4.8,
         "imagem": "/static/img/ccbb.jpg",
-        "status": "Aberto"
+        "status": "Aberto",
+        "localizacao": "SCES Trecho 2"
     },
     {
         "id": 3,
@@ -21,7 +23,8 @@
         "categoria": "Museu",
         "nota": 4.6,
         "imagem": "/static/img/museu.jpg",
-        "status": "Aberto"
+        "status": "Aberto",
+        "localizacao": "Esplanada dos Ministérios"
     },
     {
         "id": 4,
@@ -29,6 +32,7 @@
         "categoria": "Lazer",
         "nota": 4.7,
         "imagem": "/static/img/pontao.jpg",
-        "status": "Aberto"
+        "status": "Aberto",
+        "localizacao": "SHIS QL 10, Lago Sul"
     }
 ]

@@ -25,10 +25,10 @@
                     📅 {{e.horario}}
                 </p>
                 <p style="margin: 5px 0; color: #555; font-size: 0.9rem;">
-                    📍 {{e.local}}
+                    📍 {{e.localizacao}}
                 </p>
                 
-                <button style="width: 100%; margin-top: 15px; padding: 10px; background-color: #e11d48; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Comprar Ingresso</button>
+                <a href="/detalhes/eventos/{{e.id}}" style="display: block; width: 100%; margin-top: 15px; padding: 10px; background-color: #e11d48; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; text-align: center; text-decoration: none;">Ver Detalhes</a>
             </div>
         </div>
         % end
