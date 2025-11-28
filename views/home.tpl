@@ -17,7 +17,7 @@
     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;">
         
         % for local in locais:
-        <div class="card" style="background: white; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;">
+        <div class="card">
             
             <div style="height: 200px; overflow: hidden; position: relative;">
                 <img src="{{local.imagem}}" style="width: 100%; height: 100%; object-fit: cover;">
@@ -28,28 +28,20 @@
                 % end
             </div>
 
-            <div style="padding: 20px;">
-                <h4 style="margin: 0 0 8px; color: #1e293b; font-size: 1.1rem;">{{local.nome}}</h4>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <div style="padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+                <h4 style="margin: 0; color: #1e293b; font-size: 1.1rem;">{{local.nome}}</h4>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center;">
                     <span style="color: #f59e0b; font-weight: 700; font-size: 0.95rem;">★ {{local.nota}}</span>
                     <span style="color: #64748b; font-size: 0.85rem;">{{local.categoria}}</span>
                 </div>
-                <button style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; background: transparent; color: #475569; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s;">Ver Detalhes</button>
+                
+                <a href="/detalhes/locais/{{local.id}}" style="display: block; text-align: center; width: 100%; padding: 10px; border: 1px solid #e2e8f0; background: transparent; color: #475569; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s; text-decoration: none;">
+                    Ver Detalhes
+                </a>
             </div>
         </div>
         % end
 
     </div>
 </div>
-
-<style>
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        border-color: #cbd5e1 !important;
-    }
-    .card button:hover {
-        background: #f1f5f9 !important;
-        color: #0f172a !important;
-    }
-</style>

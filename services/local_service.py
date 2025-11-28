@@ -12,3 +12,10 @@ class LocalService:
                 return [Local(**item) for item in dados]
         except FileNotFoundError:
             return []
+
+    def get_by_id(self, id_buscado):
+        todos = self.get_all()
+        for item in todos:
+            if str(item.id) == str(id_buscado):
+                return item
+        return None

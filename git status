@@ -1,0 +1,131 @@
+[33mcommit da6e61e4fd1f245e0869a179be44d483ab32e458[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: pedrohenriquerodri <tiagojam345@gmail.com>
+Date:   Tue Nov 25 20:41:20 2025 -0300
+
+    mudei um pouco o layout do site
+
+[33mcommit 877b37ecaf24aa5a6b6d2efbcef19209a183e161[m
+Author: pedrohenriquerodri <tiagojam345@gmail.com>
+Date:   Tue Nov 25 20:26:30 2025 -0300
+
+    mudei o visual do site
+
+[33mcommit 6af2da2cfbfeb92773f38c141689fe22adc0a342[m
+Author: pedrohenriquerodri <tiagojam345@gmail.com>
+Date:   Tue Nov 25 20:12:31 2025 -0300
+
+    mudei toda header para que funcione
+
+[33mcommit 6fb07be0f23a8c2ad413c2ebb1fe273b7c959113[m
+Author: pedrohenriquerodri <tiagojam345@gmail.com>
+Date:   Tue Nov 25 18:52:34 2025 -0300
+
+    mudei a o header de gastronomia, fiz ele mais organizazdo
+
+[33mcommit 35c9e229f0a2d83edbdaf19b1b2592229bc8005f[m
+Author: pedrohenriquerodri <tiagojam345@gmail.com>
+Date:   Tue Nov 25 05:27:53 2025 -0300
+
+    arrumei as fotos e algumas alteraçoes no header
+
+[33mcommit bcac736b09dde7e9e732d17da411ae865530ccd8[m
+Author: pedrohenriquerodri <tiagojam345@gmail.com>
+Date:   Tue Nov 25 03:30:19 2025 -0300
+
+    adicionei a tentativa de usar os botoes header
+
+[33mcommit 0167540969910e03fe3485a072213d6b019d734b[m
+Author: pedrohenriquerodri <tiagojam345@gmail.com>
+Date:   Tue Nov 25 02:44:34 2025 -0300
+
+    correção do erro 404
+
+[33mcommit 3f88cebf4c9e48a0f820ba076b4ecfa9181f56c7[m
+Author: ˜luizfelipiie˜ <˜luizfelipenaves123@gmail.com˜>
+Date:   Tue Nov 25 02:15:43 2025 -0300
+
+    algumas mudanças mas com erro 404
+
+[33mcommit adeecaa2114693fc079fff05b9b6e0f785e82508[m
+Author: smatheusnf <mnunes.ferreirasilva@gmail.com>
+Date:   Mon Nov 24 18:29:48 2025 -0300
+
+    Adiciona pagina home e modifcacoes app.py
+
+[33mcommit f8f22fc6335ba1a19b14d3951e9ac44de4d5ec8c[m
+Author: smatheusnf <mnunes.ferreirasilva@gmail.com>
+Date:   Mon Nov 24 18:05:50 2025 -0300
+
+    Adiciona controladores
+
+[33mcommit 45ab54eade0228ae3710ae3526cbb0bc089eaa91[m
+Author: smatheusnf <mnunes.ferreirasilva@gmail.com>
+Date:   Mon Nov 24 17:57:06 2025 -0300
+
+    Adiciona footer e modifica layout
+
+[33mcommit a2557a2fcf55cf76ebbf767e12b7b389189af93d[m
+Author: smatheusnf <mnunes.ferreirasilva@gmail.com>
+Date:   Mon Nov 24 17:48:33 2025 -0300
+
+    Adicina conteudo do header no arquivo
+
+[33mcommit 3edf4ae446aa5155ede01e5bb24570fcc3d322ec[m
+Author: smatheusnf <mnunes.ferreirasilva@gmail.com>
+Date:   Mon Nov 24 17:38:07 2025 -0300
+
+    Adiciona a pasta components dentro do folder views
+
+[33mcommit ef2f1d3273b9688c6f829546057a3510edea1135[m
+Author: smatheusnf <mnunes.ferreirasilva@gmail.com>
+Date:   Tue Nov 18 20:54:07 2025 -0300
+
+    Altera as cores do site para o tema azul Escuro
+
+[33mcommit 7b61ed9202883b01b53c701759b832037402c32a[m
+Author: ˜luizfelipiie˜ <˜luizfelipenaves123@gmail.com˜>
+Date:   Tue Nov 18 16:43:38 2025 -0300
+
+    ideias para ajudar projeto
+
+[33mcommit 8ae1fd028ef5bc38646206ff63069ffad4ef6eac[m
+Author: smatheusnf <mnunes.ferreirasilva@gmail.com>
+Date:   Tue Nov 18 16:38:23 2025 -0300
+
+    Bloco de Notas com ideais do trabalho (Apagar depois)
+
+[33mcommit 69189302e0bde2be4918771926e9efb4a15331bd[m
+Author: luizfelipiie <luizfelipenave123@gmail.com>
+Date:   Wed Nov 12 22:08:19 2025 -0300
+
+    mudança README
+
+[33mcommit 94aac9aaa6fb26f439b81b3bcc9cd21c7d1dca0d[m
+Author: pedrohenriquerodri <tiagojam345@gmail.com>
+Date:   Wed Nov 12 22:02:12 2025 -0300
+
+    readme mudança
+
+[33mcommit d7f24c9373ba418f5c5456c22afe1c6f59e6c508[m
+Author: smatheusnf <mnunes.ferreirasilva@gmail.com>
+Date:   Wed Nov 12 21:39:19 2025 -0300
+
+    Mudança no nome do README
+
+[33mcommit 9f33d1fcfbc9ffd946b4e8c491dc038d1a3252cf[m
+Author: smatheusnf <mnunes.ferreirasilva@gmail.com>
+Date:   Wed Nov 12 17:57:26 2025 -0300
+
+    Exclui arquivos que eram utilizados como exemplo e commitei o .gitignore. Adendo NAO apagar outras coisas
+
+[33mcommit 0e7acbf39a6962f34f8de21e06823c00ab836420[m
+Author: Luiz Felipe <luizfipenaves123@gmail.com>
+Date:   Wed Nov 12 17:40:22 2025 -0300
+
+    Exclui arquivos que eram utilizados como exemplo. Adendo NAO apagar outras coisas
+
+[33mcommit 284ad8e81d794052ab9c99fe46b04a7d9c1feaff[m
+Author: Matheus Nunes <140985073+smatheusnf@users.noreply.github.com>
+Date:   Wed Nov 12 17:11:25 2025 -0300
+
+    Initial commit
