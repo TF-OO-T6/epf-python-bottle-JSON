@@ -45,6 +45,27 @@
 
             <div style="margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 20px;">
                 <a href="javascript:history.back()" style="color: #6366f1; font-weight: 600; text-decoration: none;">← Voltar para a lista</a>
+            
+            <div style="margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 30px;">
+                <h3 style="color: #0f172a; margin-bottom: 15px;">Como Chegar</h3>
+                
+                <div style="width: 100%; height: 350px; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        marginheight="0" 
+                        marginwidth="0" 
+                        /* O segredo: Busca pelo Nome + Brasilia */
+                        src="https://maps.google.com/maps?q={{item.nome}} Brasilia&t=&z=15&ie=UTF8&iwloc=&output=embed">
+                    </iframe>
+                </div>
+                
+                <p style="font-size: 0.9rem; color: #64748b; margin-top: 10px; display: flex; align-items: center; gap: 5px;">
+                    📍 Localização aproximada: <strong>{{item.localizacao}}</strong>
+                </p>
+                </div>
             </div>
         </div>
     </div>

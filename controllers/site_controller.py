@@ -1,4 +1,4 @@
-from bottle import template
+from bottle import template, request
 from controllers.base_controller import BaseController
 from services.local_service import LocalService
 from services.gastronomia_service import GastronomiaService
@@ -77,6 +77,31 @@ class SiteController(BaseController):
         else:
             return "Item não encontrado!"
 
+    def pagina_busca(self):
+        termo = request.query.get('q')
+        
+        resultados = []
+        
+        if termo:
+            termo = termo.lower()
+            
+            for r in self.gastro_service.get_all():
+                if termo in r.nome.lower() or termo in r.localizacao.lower():
+                    r.tipo_url = 'gastronomia'
+                    resultados.append(r)
+
+            for m in self.museu_service.get_all():
+                if termo in m.nome.lower() or termo in m.localizacao.lower():
+                    m.tipo_url = 'museus'
+                    resultados.append(m)
+
+            for e in self.evento_service.get_all():
+                if termo in e.nome.lower() or termo in e.local.lower():
+                    e.tipo_url = 'eventos'
+                    resultados.append(e)
+
+        return template('views/busca', termo=termo, resultados=resultados)
+
     def setup_routes(self):
         self.bottle.route('/portal', method='GET', callback=self.index)
         self.bottle.route('/', method='GET', callback=self.index)
@@ -88,3 +113,4 @@ class SiteController(BaseController):
         self.bottle.route('/museus', method='GET', callback=self.pagina_museus)
         
         self.bottle.route('/detalhes/<tipo>/<id_item>', method='GET', callback=self.ver_detalhes)
+        self.bottle.route('/busca', method='GET', callback=self.pagina_busca)

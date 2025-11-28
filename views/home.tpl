@@ -5,7 +5,17 @@
     <p style="color: #94a3b8; font-size: 1.1rem; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto;">
         Descubra os melhores museus, centros culturais e restaurantes da capital federal.
     </p>
-</div>
+
+    <form action="/busca" method="GET" style="margin-top: 30px;">
+        <input 
+            type="text" 
+            name="q" 
+            placeholder="Onde vamos hoje? (Ex: Museu, Pizza, Show...)" 
+            style="padding: 15px; width: 100%; max-width: 500px; border-radius: 30px; border: none; outline: none; text-align: center; font-size: 1rem; color: #333; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+            required
+        >
+    </form>
+    </div>
 
 <div class="container" style="max-width: 1200px; margin: -40px auto 60px; padding: 0 20px;">
     
