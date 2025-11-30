@@ -10,5 +10,11 @@
         "name": "Matheus",
         "email": "tuksgames1@gmail.com",
         "password": "Familia10182005"
+    },
+    {
+        "id": 3,
+        "name": "Matheus Nunes Ferreira",
+        "email": "mnunes.ferreirasilva@gmail.com",
+        "password": "familia1227"
     }
 ]

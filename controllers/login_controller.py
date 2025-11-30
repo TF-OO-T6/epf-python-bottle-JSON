@@ -8,7 +8,7 @@ class LoginController(BaseController):
 
         @self.bottle.get('/login')
         def login_view():
-            return template('views/login', error=None, user=None)
+            return template('auth', error=None, user=None)
 
         @self.bottle.post('/login')
         def login_action():
@@ -21,11 +21,11 @@ class LoginController(BaseController):
                 response.set_cookie("user_session", username, secret='segredo', path='/')
                 return redirect('/')
             else:
-                return template('views/login', error="Email ou senha incorretos", user=None)
+                return template('auth', error="Email ou senha incorretos", user=None)
 
         @self.bottle.get('/cadastro')
         def register_view():
-            return template('views/cadastro', error=None, user=None)
+            return template('auth', error=None, user=None)
 
         @self.bottle.post('/cadastro')
         def register_action():
@@ -36,7 +36,7 @@ class LoginController(BaseController):
             if service.create_user(name, email, password):
                 return redirect('/login')
             else:
-                return template('views/cadastro', error="Email já cadastrado", user=None)
+                return template('auth', error="Email já cadastrado", user=None)
 
         @self.bottle.get('/logout')
         def logout_action():
@@ -48,4 +48,4 @@ class LoginController(BaseController):
             user = request.get_cookie("user_session", secret='segredo')
             if not user:
                 return redirect('/login')
-            return template('views/user', user=user)
+            return template('user', user=user)

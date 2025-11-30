@@ -119,14 +119,14 @@
         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
         border-color: var(--accent);
       }
-      
+
       /* Efeito no botão dentro do card */
       .card button {
-          transition: background-color 0.2s, color 0.2s;
+        transition: background-color 0.2s, color 0.2s;
       }
       .card:hover button {
-          background-color: #f1f5f9;
-          color: var(--primary-dark);
+        background-color: #f1f5f9;
+        color: var(--primary-dark);
       }
     </style>
   </head>
@@ -148,7 +148,7 @@
           </svg>
           <div>BSB <span>Cultural</span></div>
         </a>
-        
+
         <nav class="nav-links">
           <a href="/portal">Home</a>
           <a href="/mapas">Mapas</a>
@@ -156,13 +156,19 @@
           <a href="/eventos">Eventos</a>
           <a href="/museus">Museus</a>
         </nav>
-        
+
         <div>
           % if defined('user') and user:
-          <a href="/perfil" class="btn-login" style="background: #22c55e">Olá, {{ user }}</a>
-          <a href="/logout" style="color: #ffcccc; font-size: 0.8rem; margin-left: 10px">Sair</a>
+          <a href="/perfil" class="btn-login" style="background: #22c55e"
+            >Olá, {{ user }}</a
+          >
+          <a
+            href="/logout"
+            style="color: #ffcccc; font-size: 0.8rem; margin-left: 10px"
+            >Sair</a
+          >
           % else:
-          <a href="/auth" class="btn-login">Entrar</a>
+          <a href="/login" class="btn-login">Entrar</a>
           % end
         </div>
       </div>
@@ -171,7 +177,7 @@
     <main>
       {{ !base }}
     </main>
-    
+
     <footer><p>© 2025 BSB Cultural. Feito com Python e Bottle.</p></footer>
   </body>
 </html>
