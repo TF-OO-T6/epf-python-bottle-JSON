@@ -14,6 +14,9 @@ class SiteController(BaseController):
         self.museu_service = MuseuService()
         self.evento_service = EventoService()
 
+    def get_usuario_logado(self):
+        return request.get_cookie("user_session", secret='segredo')
+
     def esta_aberto(self, horario_str):
         try:
             agora = datetime.now().time()
@@ -30,11 +33,13 @@ class SiteController(BaseController):
 
     def index(self):
         dados_locais = self.service.get_all()
-        return template('views/home', locais=dados_locais)
+        usuario = self.get_usuario_logado()
+        return template('views/home', locais=dados_locais, user=usuario)
 
     def pagina_gastronomia(self):
         dados_restaurantes = self.gastro_service.get_all()
-        return template('views/gastronomia', restaurantes=dados_restaurantes)
+        usuario = self.get_usuario_logado()
+        return template('views/gastronomia', restaurantes=dados_restaurantes, user=usuario)
 
     def pagina_gastronomia_abertos(self):
         todos = self.gastro_service.get_all()
@@ -42,18 +47,23 @@ class SiteController(BaseController):
         for r in todos:
             if self.esta_aberto(r.horario):
                 abertos.append(r)
-        return template('views/gastronomia', restaurantes=abertos)
+        
+        usuario = self.get_usuario_logado()
+        return template('views/gastronomia', restaurantes=abertos, user=usuario)
 
     def pagina_museus(self):
         dados_museus = self.museu_service.get_all()
-        return template('views/museus', museus=dados_museus)
+        usuario = self.get_usuario_logado()
+        return template('views/museus', museus=dados_museus, user=usuario)
 
     def pagina_eventos(self):
         dados_eventos = self.evento_service.get_all()
-        return template('views/eventos', eventos=dados_eventos)
+        usuario = self.get_usuario_logado()
+        return template('views/eventos', eventos=dados_eventos, user=usuario)
 
     def pagina_mapas(self):
-        return template('views/generico', titulo="Mapas", mensagem="Em breve.")
+        usuario = self.get_usuario_logado()
+        return template('views/generico', titulo="Mapas", mensagem="Em breve.", user=usuario)
 
     def ver_detalhes(self, tipo, id_item):
         item = None
@@ -72,14 +82,15 @@ class SiteController(BaseController):
             item = self.evento_service.get_by_id(id_item)
             nome_tipo = "Evento"
 
+        usuario = self.get_usuario_logado()
+
         if item:
-            return template('views/detalhes', item=item, categoria_nome=nome_tipo)
+            return template('views/detalhes', item=item, categoria_nome=nome_tipo, user=usuario)
         else:
             return "Item não encontrado!"
 
     def pagina_busca(self):
         termo = request.query.get('q')
-        
         resultados = []
         
         if termo:
@@ -100,7 +111,8 @@ class SiteController(BaseController):
                     e.tipo_url = 'eventos'
                     resultados.append(e)
 
-        return template('views/busca', termo=termo, resultados=resultados)
+        usuario = self.get_usuario_logado()
+        return template('views/busca', termo=termo, resultados=resultados, user=usuario)
 
     def setup_routes(self):
         self.bottle.route('/portal', method='GET', callback=self.index)

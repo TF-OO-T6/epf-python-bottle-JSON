@@ -128,6 +128,20 @@
         background-color: #f1f5f9;
         color: var(--primary-dark);
       }
+
+      .header-profile-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--accent);
+        vertical-align: middle;
+        background-color: white;
+      }
+      .header-profile-img:hover {
+        transform: scale(1.05);
+        border-color: #fff;
+      }
     </style>
   </head>
   <body>
@@ -159,9 +173,13 @@
 
         <div>
           % if defined('user') and user:
-          <a href="/perfil" class="btn-login" style="background: #22c55e"
-            >Olá, {{ user }}</a
-          >
+          <a href="/perfil" title="Ir para Perfil">
+            <img
+              src="/static/img/user-line.png"
+              alt="Perfil"
+              class="header-profile-img"
+            />
+          </a>
           <a
             href="/logout"
             style="color: #ffcccc; font-size: 0.8rem; margin-left: 10px"
