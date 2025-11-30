@@ -44,8 +44,8 @@ class LoginController(BaseController):
             return redirect('/')
 
         @self.bottle.get('/perfil')
-        def profile_view():
+        def perfil_view():
             user = request.get_cookie("user_session", secret='segredo')
-            if not user:
+            if not user: 
                 return redirect('/login')
-            return template('user', user=user)
+            return template('views/perfil', user=user)

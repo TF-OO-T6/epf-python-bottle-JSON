@@ -119,8 +119,6 @@
         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
         border-color: var(--accent);
       }
-
-      /* Efeito no botão dentro do card */
       .card button {
         transition: background-color 0.2s, color 0.2s;
       }
@@ -129,18 +127,66 @@
         color: var(--primary-dark);
       }
 
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0;
+      }
+
       .header-profile-img {
         width: 40px;
         height: 40px;
         border-radius: 50%;
         object-fit: cover;
         border: 2px solid var(--accent);
-        vertical-align: middle;
         background-color: white;
       }
-      .header-profile-img:hover {
-        transform: scale(1.05);
-        border-color: #fff;
+
+      .dropdown-arrow {
+        color: #cbd5e1;
+        font-size: 0.8rem;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 120%;
+        background-color: white;
+        min-width: 180px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        z-index: 1000;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+      }
+
+      .dropdown-content a {
+        color: var(--text-main);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: background 0.2s;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f1f5f9;
+        color: var(--accent);
+      }
+
+      .show {
+        display: block;
       }
     </style>
   </head>
@@ -173,18 +219,25 @@
 
         <div>
           % if defined('user') and user:
-          <a href="/perfil" title="Ir para Perfil">
-            <img
-              src="/static/img/user-line.png"
-              alt="Perfil"
-              class="header-profile-img"
-            />
-          </a>
-          <a
-            href="/logout"
-            style="color: #ffcccc; font-size: 0.8rem; margin-left: 10px"
-            >Sair</a
-          >
+          <div class="dropdown">
+            <button onclick="toggleDropdown()" class="dropdown-btn">
+              <img
+                src="/static/img/user-line.png"
+                alt="Perfil"
+                class="header-profile-img"
+              />
+              <span style="color: #cbd5e1; font-weight: 500">{{ user }}</span>
+              <span class="dropdown-arrow">▼</span>
+            </button>
+
+            <div id="userDropdown" class="dropdown-content">
+              <a href="/perfil">Meu Perfil</a>
+              <a href="/perfil/configuracoes">Configurações</a>
+              <div style="border-top: 1px solid #e2e8f0; margin: 4px 0"></div>
+              <a href="/logout" style="color: #ef4444">Sair</a>
+            </div>
+          </div>
+
           % else:
           <a href="/login" class="btn-login">Entrar</a>
           % end
@@ -197,5 +250,27 @@
     </main>
 
     <footer><p>© 2025 BSB Cultural. Feito com Python e Bottle.</p></footer>
+
+    <script>
+      function toggleDropdown() {
+        document.getElementById("userDropdown").classList.toggle("show");
+      }
+
+      window.onclick = function (event) {
+        if (
+          !event.target.matches(".dropdown-btn") &&
+          !event.target.matches(".header-profile-img") &&
+          !event.target.matches("span")
+        ) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains("show")) {
+              openDropdown.classList.remove("show");
+            }
+          }
+        }
+      };
+    </script>
   </body>
 </html>
