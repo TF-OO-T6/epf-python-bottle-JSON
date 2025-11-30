@@ -162,7 +162,7 @@
           <a href="/perfil" class="btn-login" style="background: #22c55e">Olá, {{ user }}</a>
           <a href="/logout" style="color: #ffcccc; font-size: 0.8rem; margin-left: 10px">Sair</a>
           % else:
-          <a href="/login" class="btn-login">Entrar</a>
+          <a href="/auth" class="btn-login">Entrar</a>
           % end
         </div>
       </div>

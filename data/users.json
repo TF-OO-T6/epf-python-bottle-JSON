@@ -1,8 +1,14 @@
 [
-  {
-    "id": 1,
-    "name": "Adminìstrador",
-    "email": "admin@bsbcultural.com",
-    "password": "123"
-  }
+    {
+        "id": 1,
+        "name": "Admin\u00ecstrador",
+        "email": "admin@bsbcultural.com",
+        "password": "123"
+    },
+    {
+        "id": 2,
+        "name": "Matheus",
+        "email": "tuksgames1@gmail.com",
+        "password": "Familia10182005"
+    }
 ]
