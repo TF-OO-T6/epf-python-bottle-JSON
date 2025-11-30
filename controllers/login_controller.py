@@ -45,7 +45,29 @@ class LoginController(BaseController):
 
         @self.bottle.get('/perfil')
         def perfil_view():
-            user = request.get_cookie("user_session", secret='segredo')
-            if not user: 
+            user_name = request.get_cookie("user_session", secret='segredo')
+            if not user_name: 
                 return redirect('/login')
-            return template('views/perfil', user=user)
+            
+            user_data = service.get_user_by_name(user_name)
+            
+            if not user_data:
+                 return redirect('/logout')
+
+            return template('views/perfil', user=user_name, dados=user_data) 
+
+        @self.bottle.post('/perfil')
+        def perfil_update():
+            user_name = request.get_cookie("user_session", secret='segredo')
+            if not user_name:
+                return redirect('/login')
+
+            dados_novos = {}
+            if request.forms.get('nome'): dados_novos['name'] = request.forms.get('nome')
+            if request.forms.get('email'): dados_novos['email'] = request.forms.get('email')
+            if request.forms.get('telefone'): dados_novos['telefone'] = request.forms.get('telefone')
+            if request.forms.get('biografia'): dados_novos['biografia'] = request.forms.get('biografia')
+            if request.forms.get('website'): dados_novos['website'] = request.forms.get('website')
+            
+            service.update_user(user_name, dados_novos)
+            return redirect('/perfil')

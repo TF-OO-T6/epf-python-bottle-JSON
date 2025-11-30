@@ -6,6 +6,9 @@ class UserService:
     def __init__(self):
         self.db_path = 'data/users.json'
         
+        if not os.path.exists('data'):
+            os.makedirs('data')
+
         if not os.path.exists(self.db_path):
             with open(self.db_path, 'w', encoding='utf-8') as f:
                 json.dump([], f)
@@ -43,3 +46,25 @@ class UserService:
                 return u['name']
         
         return None
+
+    def get_user_by_name(self, name):
+        users = self._load_users()
+        for u in users:
+            if u['name'] == name:
+                return u
+        return None
+
+    def update_user(self, current_name, new_data):
+        users = self._load_users()
+        user_found = False
+
+        for i, u in enumerate(users):
+            if u['name'] == current_name:
+                users[i].update(new_data)
+                user_found = True
+                break
+        
+        if user_found:
+            self._save_users(users)
+            return True
+        return False
